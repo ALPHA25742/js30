@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="panels">
+        <div class="panel p1">
+            <p >Apni</p>    
+            <p>Nazar</p>
+            <p>ki hifazat karo take Allah ko dekh sako</p>
+        </div>
+        <div class="panel p2">
+            <p >Allah</p>
+            <p>Qabiliyat</p>
+            <p >se zyada bande ko nahi azmata</p>
+        </div>
+        <div class="panel p3">
+            <p>Allah</p>
+            <p>Jameel</p>
+            <p>hai aur khoobsurti pasand karte hai</p>
+        </div>
+        <div class="panel p4">
+            <p>Iflasi</p>
+            <p>Shaitaan</p>
+            <p>ki kartut hai</p>
+        </div>
+        <div class="panel p5">
+            <p>Allah ke liye logo se</p>
+            <p>Mohabbat</p>
+            <p>karo</p>
+        </div>
+        <div class="panel p6">
+            <p>Nafeel ibadato ke muqable</p>
+            <p>Ilm</p>
+            <p>hasil karna afzal hai</p>
+        </div>
+    </div>
+    <style>
+        *{
+            margin: 0;
+        }
+        .panels{
+            display: flex;
+        }
+        .panel{
+            flex: 1;
+            height: 100vh;
+            color: whitesmoke;
+            text-shadow: 2px 2px black;
+            background-position:center;
+            text-align: center;
+            padding: auto 0;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: x-large;
+            transition:
+                font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                background 0.2s,
+                transform 0.7s;
+            overflow: hidden;
+        }
+        p{
+            /* border: red solid 2px; */
+            width: 100%;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .p1{
+            background-image: url(flowers.jpg);
+        }
+        .p2{
+            background-image: url(sea.jpeg);
+        }
+        .p3{
+            background-image: url(garden.jpg);
+        }
+        .p4{
+            background-image: url(colorful.jpg);
+        }
+        .p5{
+            background-image: url(lake.jpg);
+        }
+        .p6{
+            background-image: url(christmas.jpg);
+        }
+        .panel > *:first-child{ transform: translateY(-100%);}
+        .panel.open-active > *:first-child{ transform: translateY(0);}
+        .panel > *:last-child{ transform: translateY(100%);}
+        .panel.open-active > *:last-child{ transform: translateY(0);}
+
+        .panel.open{
+            flex: 5;
+            font-size: xx-large;
+        }
+    </style>
+    <script>
+        const panels = document.querySelectorAll('.panel')
+        panels.forEach(panel=>{
+            // firstChild = document.querySelector('p:first-child')
+            // lastChild = document.querySelector('p:last-child')
+            // console.log(firstChild)
+            panel.addEventListener('click',toggleopen)
+            panel.addEventListener('transitionend',toggleopenactive)
+        })
+        function toggleopen(){
+            console.log('hi')
+            this.classList.toggle('open')
+        }
+        function toggleopenactive(e){
+            if (e.propertyName.includes('flex')){
+            this.classList.toggle('open-active')   
+            }
+        }
+    </script>
+</body>
+</html>
